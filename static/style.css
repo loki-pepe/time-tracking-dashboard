@@ -20,6 +20,7 @@
     --dark-blue: hsl(235 45% 20%);
     --desaturated-blue: hsl(235 45% 61%);
     --pale-blue: hsl(236 100% 87%);
+    --white: hsl(0 0% 100%);
 
 }
 
@@ -35,9 +36,56 @@
 body {
     min-height: 100vh;
     font-family: "Rubik", sans-serif;
+    background-color: var(--very-dark-blue);
+    color: var(--white);
+}
+
+/* Card colors */
+.card {
+    background-color: var(--dark-blue);
+}
+#exercise {
+    background-color: var(--exercise);
+}
+#play {
+    background-color: var(--play);
+}
+#self-care {
+    background-color: var(--self-care);
+}
+#social {
+    background-color: var(--social);
+}
+#study {
+    background-color: var(--study)
+}
+#work {
+    background-color: var(--work);
+}
+
+.card-inner {
+    background-color: var(--dark-blue);
 }
   
 img {
     display: block;
     max-width: 100%;
+}
+
+nav button {
+    border: none;
+    background-color: inherit;
+    color: var(--desaturated-blue);
+}
+
+.previous {
+    color: var(--pale-blue);
+}
+
+#profile {
+    background-color: var(--blue);
+}
+
+#report {
+    color: var(--pale-blue);
 }
