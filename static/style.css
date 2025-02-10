@@ -107,6 +107,10 @@ nav button {
     color: var(--pale-blue);
 }
 
+ul {
+    list-style: none;
+}
+
 @media (hover: hover) {
     .card:not(#user):hover {
         cursor: pointer;
