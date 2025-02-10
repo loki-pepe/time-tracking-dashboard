@@ -46,33 +46,41 @@ body {
     font-family: "Rubik", sans-serif;
     background-color: var(--very-dark-blue);
     color: var(--white);
+    padding: 24px;
+}
+
+.card {
+    background-color: var(--dark-blue);
+    border-radius: 15px;
+}
+
+.card:not(#user) {
+    padding-top: 38px;
 }
 
 /* Card colors */
-.card {
-    background-color: var(--dark-blue);
-}
 #exercise {
-    background-color: var(--exercise);
+    background: no-repeat url("../images/icon-exercise.svg") top -1% right 20px, linear-gradient(var(--exercise) 50%, transparent 50%);
 }
 #play {
-    background-color: var(--play);
+    background: no-repeat url("../images/icon-play.svg") top -10% right 20px, linear-gradient(var(--play) 50%, transparent 50%);
 }
 #self-care {
-    background-color: var(--self-care);
+    background: no-repeat url("../images/icon-self-care.svg") top -20% right 20px, linear-gradient(var(--self-care) 50%, transparent 50%);
 }
 #social {
-    background-color: var(--social);
+    background: no-repeat url("../images/icon-social.svg") top -60% right 20px, linear-gradient(var(--social) 50%, transparent 50%);
 }
 #study {
-    background-color: var(--study)
+    background: no-repeat url("../images/icon-study.svg") top -15% right 20px, linear-gradient(var(--study) 50%, transparent 50%);
 }
 #work {
-    background-color: var(--work);
+    background: no-repeat url("../images/icon-work.svg") top -25% right 20px, linear-gradient(var(--work) 50%, transparent 50%);
 }
 
 .card-inner {
     background-color: var(--dark-blue);
+    border-radius: inherit;
 }
   
 img {
