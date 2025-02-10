@@ -18,6 +18,7 @@
     /* Neutral colors */
     --very-dark-blue: hsl(226 43% 10%);
     --dark-blue: hsl(235 45% 20%);
+    --pastel-blue: hsl(236 41% 34%);
     --desaturated-blue: hsl(235 45% 61%);
     --pale-blue: hsl(236 100% 87%);
     --white: hsl(0 0% 100%);
@@ -88,4 +89,24 @@ nav button {
 
 #report {
     color: var(--pale-blue);
+}
+
+@media (hover: hover) {
+    .card:not(#user):hover {
+        cursor: pointer;
+    }
+
+    .card:not(#user):hover:not(:has(.ellipsis:hover)) .card-inner {
+        background-color: var(--pastel-blue);
+    }
+
+    .ellipsis:hover path {
+        cursor: pointer;
+        fill: var(--white);
+    }
+
+    nav button:hover {
+        cursor: pointer;
+        color: var(--white);
+    }
 }
