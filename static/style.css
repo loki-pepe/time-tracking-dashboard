@@ -23,6 +23,11 @@
     --pale-blue: hsl(236 100% 87%);
     --white: hsl(0 0% 100%);
 
+    /* Font sizes */
+    --small: 0.9375rem;
+    --medium: 1.125rem;
+    --name: clamp(1.5rem, 0.8922rem + 2.5932vw, 2.5rem);
+    --time: clamp(2rem, 1.0883rem + 3.8898vw, 3.5rem);
 }
 
 *, *::before, *::after {
@@ -45,6 +50,9 @@
 body {
     min-height: 100vh;
     font-family: "Rubik", sans-serif;
+    font-size: var(--small);
+    font-weight: 400;
+    letter-spacing: 0;
     background-color: var(--very-dark-blue);
     color: var(--white);
     padding: 24px;
@@ -88,6 +96,22 @@ body {
     grid-template-rows: auto auto;
     justify-content: space-between;
     row-gap: 6px;
+    align-items: center;
+}
+
+.current {
+    font-weight: 300;
+    font-size: var(--time);
+}
+
+h1 {
+    font-weight: 300;
+    font-size: var(--name);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: var(--medium);
 }
   
 img {
@@ -108,7 +132,13 @@ main {
     grid-area: name;
 }
 
+nav {
+    font-size: var(--medium);
+}
+
 nav button {
+    display: block;
+    font-size: inherit;
     border: none;
     background-color: inherit;
     color: var(--desaturated-blue);
@@ -123,6 +153,7 @@ nav button {
     padding-block: 35px;
     display: grid;
     justify-content: center;
+    align-items: center;
     grid-template-areas:
         "avatar report"
         "avatar name"
@@ -147,7 +178,8 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
-    padding-block: 26px;
+    align-items: center;
+    padding-block: 24px;
 }
 
 @media (hover: hover) {
