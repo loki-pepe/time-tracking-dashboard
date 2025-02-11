@@ -39,6 +39,7 @@
     outline: 3px solid var(--white);
     box-shadow: 0 4px 4px 3px hsl(0 0% 0% / 0.25);
     width: clamp(4rem, 3.4682rem + 2.269vw, 4.875rem);
+    grid-area: avatar;
 }
 
 body {
@@ -89,6 +90,10 @@ img {
     height: auto;
 }
 
+#name {
+    grid-area: name;
+}
+
 nav button {
     border: none;
     background-color: inherit;
@@ -101,14 +106,30 @@ nav button {
 
 #profile {
     background-color: var(--blue);
+    padding-block: 35px;
+    display: grid;
+    justify-content: center;
+    grid-template-areas:
+        "avatar report"
+        "avatar name"
+    ;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 20px;
+    row-gap: 4px;
 }
 
 #report {
     color: var(--pale-blue);
+    grid-area: report;
 }
 
 ul {
     list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding-block: 26px;
 }
 
 @media (hover: hover) {
