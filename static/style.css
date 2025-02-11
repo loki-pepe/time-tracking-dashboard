@@ -82,6 +82,12 @@ body {
 .card-inner {
     background-color: var(--dark-blue);
     border-radius: inherit;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    row-gap: 6px;
 }
   
 img {
