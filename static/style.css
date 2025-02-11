@@ -56,6 +56,7 @@ body {
     background-color: var(--very-dark-blue);
     color: var(--white);
     padding: 24px;
+    display: grid;
 }
 
 .card {
@@ -67,7 +68,7 @@ body {
     padding-top: 38px;
 }
 
-/* Card colors */
+/* Card decorations */
 #exercise {
     background: no-repeat url("../images/icon-exercise.svg") top -1px right 17px, linear-gradient(var(--exercise) 50%, transparent 50%);
 }
@@ -92,8 +93,10 @@ body {
     border-radius: inherit;
     padding: 28px 24px;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
+    grid-template-areas:
+        "type ellipsis"
+        "current previous"
+    ;
     justify-content: space-between;
     row-gap: 6px;
     align-items: center;
@@ -102,10 +105,12 @@ body {
 .current {
     font-weight: 300;
     font-size: var(--time);
+    grid-area: current
 }
 
 .ellipsis {
     justify-self: end;
+    grid-area: ellipsis;
 }
 
 h1 {
@@ -116,6 +121,7 @@ h1 {
 h2 {
     font-weight: 500;
     font-size: var(--medium);
+    grid-area: type;
 }
   
 img {
@@ -128,8 +134,8 @@ main {
     display: grid;
     justify-content: center;
     align-content: center;
-    row-gap: 24px;
-    grid-template-columns: 1fr;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
 }
 
 #name {
@@ -151,6 +157,7 @@ nav button {
 
 .previous {
     color: var(--pale-blue);
+    grid-area: previous;
 }
 
 #profile {
@@ -165,8 +172,6 @@ nav button {
         "avatar name"
         "avatar ."
     ;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto auto;
     column-gap: 20px;
     row-gap: 4px;
 }
@@ -189,6 +194,10 @@ ul {
     padding-block: 24px;
 }
 
+#user {
+    grid-column: 1 / -1;
+}
+
 @media (hover: hover) {
     .card:not(#user):hover {
         cursor: pointer;
@@ -206,5 +215,69 @@ ul {
     nav button:hover {
         cursor: pointer;
         color: var(--white);
+    }
+}
+
+@media (min-width: 1040px) {
+    #avatar {
+        min-width: 78px;
+        margin-block-end: 40px;
+    }
+
+    body {
+        justify-content: center;
+    }
+
+    .card {
+        max-width: 255px;
+    }
+
+    .card:not(#user) {
+        padding-top: 45px;
+    }
+
+    .card-inner {
+        grid-template-areas:
+            "type ellipsis"
+            "current ."
+            "previous ."
+        ;
+        row-gap: 8px;
+        padding: 29px 30px;
+    }
+
+    .current {
+        margin-block-start: 19px;
+    }
+
+    main {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto;
+        gap: 30px;
+    }
+
+    #profile {
+        grid-template-areas:
+            "avatar"
+            "report"
+            "name"
+        ;
+        justify-content: start;
+        align-content: stretch;
+        padding: 37px 32px 80px; 
+        row-gap: 3px;
+    }
+
+    ul {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: auto;
+        justify-items: start;
+        row-gap: 21px;
+        padding: 26px 32px;
+    }
+
+    #user {
+        grid-column: 1;
+        grid-row: 1 / -1;
     }
 }
