@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let timeButtons = Array.from(document.querySelectorAll('nav button'));
-    let currentTimes = document.querySelectorAll('.current');
-    let previousTimes = document.querySelectorAll('.previous');
+    let currentTimeSlots = document.querySelectorAll('.current');
+    let previousTimeSlots = document.querySelectorAll('.previous');
 
     updateTimes(document.querySelector('.selected').id);
     
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
     function setTimeFrame(timeFrame) {
-        for (let p of previousTimes) {
+        for (let p of previousTimeSlots) {
             p.classList.remove('daily', 'weekly', 'monthly');
             p.classList.add(timeFrame);
         }
@@ -32,13 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.querySelector('.previous').textContent = previous + 'hrs';
             }
         }).catch((e) => {
-            for (let time of currentTimes) {
+            for (let time of [currentTimeSlots, previousTimeSlots]) {
                 time.textContent = 'N/A';
             }
-            for (let time of previousTimes) {
-                time.textContent = 'N/A';
-            }
-            console.error(`Error: ${e}`)
+            console.error(e);
         });
     }
     
