@@ -160,6 +160,16 @@ nav button {
     grid-area: previous;
 }
 
+.previous.day::before{
+    content: "Yesterday - "
+}
+.previous.week::before{
+    content: "Last Week - "
+}
+.previous.month::before{
+    content: "Last Month - "
+}
+
 #profile {
     background-color: var(--blue);
     padding-block: 35px;
