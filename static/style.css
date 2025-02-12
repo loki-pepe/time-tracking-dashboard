@@ -160,13 +160,13 @@ nav button {
     grid-area: previous;
 }
 
-.previous.day::before{
+.previous.daily::before{
     content: "Yesterday - "
 }
-.previous.week::before{
+.previous.weekly::before{
     content: "Last Week - "
 }
-.previous.month::before{
+.previous.monthly::before{
     content: "Last Month - "
 }
 
