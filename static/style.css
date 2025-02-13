@@ -55,8 +55,9 @@ body {
     letter-spacing: 0;
     background-color: var(--very-dark-blue);
     color: var(--white);
-    padding: 24px;
+    padding: 24px clamp(4px, -112px + 36.3636vw, 24px);
     display: grid;
+    justify-content: center;
 }
 
 .card {
@@ -98,7 +99,7 @@ body {
         "current previous"
     ;
     justify-content: space-between;
-    row-gap: 6px;
+    gap: 6px;
     align-items: center;
 }
 
@@ -135,11 +136,12 @@ main {
     justify-content: center;
     align-content: center;
     gap: 24px;
-    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    grid-template-columns: minmax(auto, 512px);
 }
 
 #name {
     grid-area: name;
+    word-wrap:break-word;
 }
 
 nav {
@@ -158,6 +160,7 @@ nav button {
 .previous {
     color: var(--pale-blue);
     grid-area: previous;
+    text-align: end;
 }
 
 .previous.daily::before{
@@ -228,18 +231,14 @@ ul {
     }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 1080px) {
     #avatar {
         min-width: 78px;
         margin-block-end: 40px;
     }
 
     body {
-        justify-content: center;
-    }
-
-    .card {
-        max-width: 255px;
+        align-content: center;
     }
 
     .card:not(#user) {
@@ -261,9 +260,13 @@ ul {
     }
 
     main {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto auto;
+        grid-template-columns: repeat(4, minmax(auto, 255px));
+        grid-template-rows: 1fr 1fr;
         gap: 30px;
+    }
+
+    .previous {
+        text-align: start;
     }
 
     #profile {
