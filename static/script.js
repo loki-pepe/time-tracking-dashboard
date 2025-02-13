@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateTimes(document.querySelector('.selected').id);
     
-    timeButtons.map(x => x.addEventListener('click', (e) => {
+    timeButtons.forEach(x => x.addEventListener('click', (e) => {
         for (let button of timeButtons) {
             button.classList.remove('selected');
         }
@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTimes(timeFrame) {
-        fetch('/projects/frontend-mentor/time-tracking-dashboard-main/data.json').then((response) => {  
+        fetch('/projects/frontend-mentor/time-tracking-dashboard-main/data.json').then((response) => {
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
             return response.json();
         }).then((data) => {
             for (let section of data) {
@@ -32,7 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.querySelector('.previous').textContent = previous + 'hrs';
             }
         }).catch((e) => {
-            for (let time of [currentTimeSlots, previousTimeSlots]) {
+            for (let time of currentTimeSlots) {
+                time.textContent = 'N/A';
+            }
+            for (let time of previousTimeSlots) {
                 time.textContent = 'N/A';
             }
             console.error(e);
