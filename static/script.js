@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let timeButtons = Array.from(document.querySelectorAll('nav button'));
+    let timeButtons = document.querySelectorAll('nav button');
     let currentTimeElements = document.querySelectorAll('.current');
     let previousTimeElements = document.querySelectorAll('.previous');
 
