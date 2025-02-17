@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let timeButtons = document.querySelectorAll('nav button');
-    let currentTimeElements = document.querySelectorAll('.current');
+    let timeElements = document.querySelectorAll('.current', '.previous');
     let previousTimeElements = document.querySelectorAll('.previous');
 
     updateTimes(document.querySelector('.selected').id);
@@ -35,10 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.querySelector('.previous').textContent = previous + 'hrs';
             }
         }).catch((e) => {
-            for (let time of currentTimeElements) {
-                time.textContent = 'N/A';
-            }
-            for (let time of previousTimeElements) {
+            for (let time of timeElements) {
                 time.textContent = 'N/A';
             }
             console.error(e);
